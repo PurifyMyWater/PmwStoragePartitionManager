@@ -1,4 +1,5 @@
-#include "PrivStoragePartitionManager.h"
+#include "StoragePartitionManager.h"
+#include "esp_log.h"
 
 
 esp_err_t StoragePartitionManager::unmount()
@@ -12,10 +13,7 @@ esp_err_t StoragePartitionManager::unmount()
     return ret;
 }
 
-esp_vfs_spiffs_conf_t StoragePartitionManager::getConf()
-{
-    return conf;
-}
+esp_vfs_spiffs_conf_t StoragePartitionManager::getConf() { return conf; }
 
 esp_err_t StoragePartitionManager::format()
 {
@@ -62,10 +60,7 @@ esp_err_t StoragePartitionManager::mount()
         ESP_LOGE(STORAGE_PARTITION_MANAGER_COMPONENT_TAG, "Failed to get " CONFIG_STORAGE_PARTITION_LABEL " partition information: %s", esp_err_to_name(ret));
         return ret;
     }
-    else
-    {
-        ESP_LOGI(STORAGE_PARTITION_MANAGER_COMPONENT_TAG, CONFIG_STORAGE_PARTITION_LABEL " partition size: total: %d, used: %d", total, used);
-    }
+    ESP_LOGI(STORAGE_PARTITION_MANAGER_COMPONENT_TAG, CONFIG_STORAGE_PARTITION_LABEL " partition size: total: %d, used: %d", total, used);
 
     // Check consistency of reported partition size info.
     if (used > total)

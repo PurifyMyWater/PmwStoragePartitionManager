@@ -1,11 +1,10 @@
 #ifndef PURIFYMYWATER_STORAGEPARTITIONMANAGER_H
 #define PURIFYMYWATER_STORAGEPARTITIONMANAGER_H
 
-
 #include "esp_err.h"
-#include "esp_log.h"
 #include "esp_spiffs.h"
 
+#define CONFIG_STORAGE_PARTITION_LABEL "storage"
 
 class StoragePartitionManager
 {
@@ -22,6 +21,7 @@ class StoragePartitionManager
             .max_files = 5,
             .format_if_mount_failed = false
         };
+  constexpr static auto STORAGE_PARTITION_MANAGER_COMPONENT_TAG = "PMW_StoragePartitionManager";
 };
 
 
