@@ -1,0 +1,12 @@
+version: "1.0.0"
+description: "This component provides an interface to manage the ESP32 data partition"
+url: "https://github.com/vacmg/PMW-StoragePartitionManagerComponent"
+files:
+    exclude:
+        - ".github/*"
+        - "test-project/*"
+        - "test/*"
+        - ".clang-*"
+dependencies:
+    idf:
+        version: ">=5.4.0"
