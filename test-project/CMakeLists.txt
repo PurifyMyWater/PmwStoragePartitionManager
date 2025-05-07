@@ -10,7 +10,7 @@ set(EXTRA_COMPONENT_DIRS "../..")
 # - when invoking CMake directly: cmake -D TEST_COMPONENTS="xxxxx" ..
 # - when using idf.py: idf.py -T xxxxx build
 #
-set(TEST_COMPONENTS "PMW-StoragePartitionManagerComponent" CACHE STRING "Components to be tested")
+set(TEST_COMPONENTS "PMW-StoragePartitionManager" CACHE STRING "Components to be tested")
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 project(test-project)
